@@ -6,7 +6,7 @@ const Card = ({ framework, changeFramework, changeBackGround }) => {
     <section className="card">
       <div className="card__description">
         <p >{framework.phrase}</p>
-        <i class="fa-solid fa-quote-right"></i>
+        <i className="fa-solid fa-quote-right"></i>
       </div>
       <div className="card__container-btn">
         <Button handleClick={changeFramework} handleClick2={changeBackGround} />

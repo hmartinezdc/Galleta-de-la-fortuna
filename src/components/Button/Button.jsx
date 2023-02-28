@@ -5,7 +5,7 @@ const Button = ({handleClick, handleClick2 }) => {
     <button onClick={() => {handleClick(); handleClick2()}}>
         <span>
           <span>
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <i className="fa-solid fa-wand-magic-sparkles"></i>
           </span> Probar mi suerte
         </span>
     </button>
