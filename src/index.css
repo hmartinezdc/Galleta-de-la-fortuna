@@ -30,11 +30,13 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  align-items: flex-start;
   min-width: 320px;
   
 }
 
 button {
+  
   margin-top: 60px;
   border-radius: 8px;
   border: 1px solid transparent;
