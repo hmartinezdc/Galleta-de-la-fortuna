@@ -15,10 +15,12 @@ function App() {
 
   let randon2 = Number((Math.random() * 3).toFixed(0));
   const [firstImg, setfirstImg] = useState(randon2);
-  // 1xr5MqN2JsE6dGXXOv8IDjSqIXxfSg3AC, 1GV6OgkiUouKPuZYttoW5mrMywY1UNLOH
+  
+  
+
   let pictures = [
     {
-      img: "https://drive.google.com/uc?export=download&id=1xr5MqN2JsE6dGXXOv8IDjSqIXxfSg3AC",
+      img: "https://drive.google.com/uc?export=download&id=1GV6OgkiUouKPuZYttoW5mrMywY1UNLOH",
     },
     {
       img: "https://drive.google.com/uc?export=download&id=1k_JxbN_4XdQGZkKXUSQN3061wKa8fNpq",
@@ -27,7 +29,7 @@ function App() {
       img: "https://drive.google.com/uc?export=download&id=1YamZr7maKuDSj4ooOm9ffgDPWNS6kG_T",
     },
     {
-      img: "https://drive.google.com/uc?export=download&id=1BnPZlyjoFZJfLCxdrEu7AzNfh2VSrfmA",
+      img: "https://drive.google.com/uc?export=download&id=1xr5MqN2JsE6dGXXOv8IDjSqIXxfSg3AC",
     },
   ];
   const changeBackgroundImg = () => {

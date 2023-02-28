@@ -4,13 +4,14 @@ import "./Card.css";
 const Card = ({ framework, changeFramework, changeBackGround }) => {
   return (
     <section className="card">
+      <div className="card__description">
+        <p >{framework.phrase}</p>
+        <i class="fa-solid fa-quote-right"></i>
+      </div>
       <div className="card__container-btn">
         <Button handleClick={changeFramework} handleClick2={changeBackGround} />
       </div>
-
-      <p className="card__description">{framework.phrase}</p>
-
-      <h3 className="card__title">
+      <h3 className="card__author">
         <span>Fuente: </span>
         {framework.author}
       </h3>

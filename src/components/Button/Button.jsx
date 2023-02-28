@@ -3,7 +3,11 @@ import React from 'react'
 const Button = ({handleClick, handleClick2 }) => {
   return (
     <button onClick={() => {handleClick(); handleClick2()}}>
-        <span>Probar mi suerte</span>
+        <span>
+          <span>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </span> Probar mi suerte
+        </span>
     </button>
   )
 }
