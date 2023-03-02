@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import "./Card.css";
 
-const Card = ({ framework, changeFramework, changeBackGround }) => {
+const Card = ({ framework, changePhrases, changeBackGround }) => {
   return (
     <section className="card">
       <div className="card__description">
@@ -10,7 +10,7 @@ const Card = ({ framework, changeFramework, changeBackGround }) => {
       </div>
       <div className="card__container-btn">
         <Button 
-          handleClick={changeFramework} 
+          handleClick={changePhrases} 
           handleClick2={changeBackGround} />
       </div>
       <h3 className="card__author">

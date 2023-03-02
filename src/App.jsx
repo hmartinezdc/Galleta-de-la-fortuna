@@ -1,43 +1,41 @@
 import { useState } from "react";
 import frases from "./assets/data.json";
-import "./App.css";
+import pictures from "./assets/pictures.json";
 import Card from "./components/Card/Card";
 import Background from "./components/Background/Background";
-import pictures from "./assets/pictures.json";
+import "./App.css";
 
 function App() {
-  let numRandomFrases = Number((Math.random() * (frases.length - 1)).toFixed(0));
+  let numRandomBackground = Math.round(Math.random() * (pictures.length - 1));
+  let numRandomFrases = Math.round(Math.random() * (frases.length - 1));
 
-  const [indexVisibleFramework, setframeworkVisible] = useState(numRandomFrases);
-
-  const changeFramework = () => {
-    let numRandon = Number((Math.random() * (frases.length - 1)).toFixed(0));
-
-    while(numRandon === indexVisibleFramework) {
-      numRandon = Number((Math.random() * (frases.length - 1)).toFixed(0));
+  const [indexPhrases, setIndexPhrases] = useState(numRandomFrases);
+  const [indexImg, setIndexImg] = useState(numRandomBackground);
+  
+  const changeIndexBackground = () => {
+    let numRandonBg = Math.round(Math.random() * (pictures.length - 1));
+    while(numRandonBg === indexImg) {
+      numRandonBg = Math.round(Math.random() * (pictures.length - 1));
     }
-    setframeworkVisible(numRandon);
+    setIndexImg(numRandonBg);
+  };
+  const changeIndexPhrases = () => {
+    let numRandom = Math.round(Math.random() * (frases.length - 1));
+    while(indexPhrases === numRandom) {
+      numRandom = Math.round(Math.random() * (frases.length - 1));
+    }
+    setIndexPhrases(numRandom);
   };
 
-  let numRandomBackground = Number((Math.random() * 3).toFixed(0));
-  const [firstImg, setfirstImg] = useState(numRandomBackground);
-
-  const changeBackgroundImg = () => {
-    let numRandon = Number((Math.random() * 3).toFixed(0));
-    while(numRandon === firstImg) {
-      numRandon = Number((Math.random() * 3).toFixed(0));
-    }
-    setfirstImg(numRandon);
-  };
 
   return (
     <div className="App">
-      <Background background={pictures[firstImg]} />
+      <Background background={pictures[indexImg]} />
       <h1>Galleta de la Fortuna</h1>
       <Card
-        framework={frases[indexVisibleFramework]}
-        changeFramework={changeFramework}
-        changeBackGround={changeBackgroundImg}
+        framework={frases[indexPhrases]}
+        changePhrases={changeIndexPhrases}
+        changeBackGround={changeIndexBackground}
       />
     </div>
   );
