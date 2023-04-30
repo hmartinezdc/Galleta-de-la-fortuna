@@ -1,22 +1,21 @@
 import Button from "../Button/Button";
 import "./Card.css";
 
-const Card = ({ framework, changePhrases, changeBackGround }) => {
+const Card = ({ phraseObject, handleClick }) => {
   return (
     <section className="card">
+      <h1>Galleta de la Fortuna</h1>
       <div className="card__description">
-        <p >{framework.phrase}</p>
+        <p >{phraseObject.phrase}</p>
         <i className="fa-solid fa-quote-right"></i>
       </div>
       <div className="card__container-btn">
-        <Button 
-          handleClick={changePhrases} 
-          handleClick2={changeBackGround} />
-      </div>
       <h3 className="card__author">
         <span>Fuente: </span>
-        {framework.author}
+        {phraseObject.author}
       </h3>
+        <Button handleClick={handleClick}/>
+      </div>
     </section>
   );
 };

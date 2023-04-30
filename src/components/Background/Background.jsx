@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const Background = ({background}) => {
+const Background = ({ background }) => {
   return (
-    <div className='card__container-img'>
-        <img loading='lazy' src={background.img} alt="" />
+    <div className="card__container-img">
+      <img loading="lazy" src={background.img} alt="" />
     </div>
-  )
-}
+  );
+};
 
-export default Background
+export default Background;

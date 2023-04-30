@@ -1,41 +1,45 @@
 import { useState } from "react";
-import frases from "./assets/data.json";
+import { getNumRandom } from "./utils/getNumRandom";
 import pictures from "./assets/pictures.json";
-import Card from "./components/Card/Card";
+import phrases from "./assets/data.json";
 import Background from "./components/Background/Background";
+import Card from "./components/Card/Card";
 import "./App.css";
 
 function App() {
-  let numRandomBackground = Math.round(Math.random() * (pictures.length - 1));
-  let numRandomFrases = Math.round(Math.random() * (frases.length - 1));
 
-  const [indexPhrases, setIndexPhrases] = useState(numRandomFrases);
-  const [indexImg, setIndexImg] = useState(numRandomBackground);
+  const getBackgroundPhrases = () => pictures[getNumRandom(pictures.length - 1)];
+  const getRandomPhrase = () => phrases[getNumRandom(phrases.length - 1)];
   
-  const changeIndexBackground = () => {
-    let numRandonBg = Math.round(Math.random() * (pictures.length - 1));
-    while(numRandonBg === indexImg) {
-      numRandonBg = Math.round(Math.random() * (pictures.length - 1));
+  const [backgroundPhrases, setBackgroundPhrases] = useState(getBackgroundPhrases());
+  const [phraseObject, setPhraseObject] = useState(getRandomPhrase());
+
+  const changeBackground = () => {
+    let currentBackground = getBackgroundPhrases();
+    while (currentBackground.img === backgroundPhrases.img) {
+      currentBackground = getBackgroundPhrases();
     }
-    setIndexImg(numRandonBg);
-  };
-  const changeIndexPhrases = () => {
-    let numRandom = Math.round(Math.random() * (frases.length - 1));
-    while(indexPhrases === numRandom) {
-      numRandom = Math.round(Math.random() * (frases.length - 1));
-    }
-    setIndexPhrases(numRandom);
+    setBackgroundPhrases(currentBackground);
   };
 
+  const changePhrases = () => {
+    let currentPhrase = getRandomPhrase();
+    while (phraseObject.phrase === currentPhrase.phrase) {
+      currentPhrase = getRandomPhrase();
+    }
+    setPhraseObject(currentPhrase);
+  };
+  const handleClick = () => {
+    changeBackground();
+    changePhrases();
+  };
 
   return (
     <div className="App">
-      <Background background={pictures[indexImg]} />
-      <h1>Galleta de la Fortuna</h1>
+      <Background background={backgroundPhrases} />
       <Card
-        framework={frases[indexPhrases]}
-        changePhrases={changeIndexPhrases}
-        changeBackGround={changeIndexBackground}
+        phraseObject={phraseObject}
+        handleClick={handleClick}
       />
     </div>
   );
